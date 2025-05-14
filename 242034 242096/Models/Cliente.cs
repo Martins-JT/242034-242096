@@ -22,5 +22,7 @@ namespace _242034_242096.Models
         public string foto { get; set; }
 
         public bool venda { get; set; }
+
+       
     }
 }
