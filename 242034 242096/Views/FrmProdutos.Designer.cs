@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.ofdArquivo = new System.Windows.Forms.OpenFileDialog();
-            this.txtRenda = new System.Windows.Forms.TextBox();
+            this.txtEstoque = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.cboCidades = new System.Windows.Forms.ComboBox();
+            this.cboCategorias = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtDescricao = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtId = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,11 +49,11 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnIncluir = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.cboMarcas = new System.Windows.Forms.ComboBox();
+            this.txtValor = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,12 +61,12 @@
             // 
             this.ofdArquivo.FileName = "openFileDialog1";
             // 
-            // txtRenda
+            // txtEstoque
             // 
-            this.txtRenda.Location = new System.Drawing.Point(286, 200);
-            this.txtRenda.Name = "txtRenda";
-            this.txtRenda.Size = new System.Drawing.Size(100, 20);
-            this.txtRenda.TabIndex = 50;
+            this.txtEstoque.Location = new System.Drawing.Point(286, 200);
+            this.txtEstoque.Name = "txtEstoque";
+            this.txtEstoque.Size = new System.Drawing.Size(100, 20);
+            this.txtEstoque.TabIndex = 50;
             // 
             // label8
             // 
@@ -91,21 +91,21 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(16, 93);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(55, 13);
             this.label3.TabIndex = 61;
-            this.label3.Text = "Cidade:";
+            this.label3.Text = "Categoria:";
             // 
-            // cboCidades
+            // cboCategorias
             // 
-            this.cboCidades.FormattingEnabled = true;
-            this.cboCidades.Location = new System.Drawing.Point(19, 109);
-            this.cboCidades.Name = "cboCidades";
-            this.cboCidades.Size = new System.Drawing.Size(367, 21);
-            this.cboCidades.TabIndex = 47;
+            this.cboCategorias.FormattingEnabled = true;
+            this.cboCategorias.Location = new System.Drawing.Point(19, 109);
+            this.cboCategorias.Name = "cboCategorias";
+            this.cboCategorias.Size = new System.Drawing.Size(367, 21);
+            this.cboCategorias.TabIndex = 47;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.dgvClientes);
+            this.groupBox1.Controls.Add(this.dgvProdutos);
             this.groupBox1.Controls.Add(this.btnPesquisar);
             this.groupBox1.Controls.Add(this.txtPesquisa);
             this.groupBox1.Controls.Add(this.label4);
@@ -115,17 +115,18 @@
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             // 
-            // dgvClientes
+            // dgvProdutos
             // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToOrderColumns = true;
-            this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.Location = new System.Drawing.Point(18, 80);
-            this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.ReadOnly = true;
-            this.dgvClientes.Size = new System.Drawing.Size(574, 166);
-            this.dgvClientes.TabIndex = 12;
+            this.dgvProdutos.AllowUserToAddRows = false;
+            this.dgvProdutos.AllowUserToDeleteRows = false;
+            this.dgvProdutos.AllowUserToOrderColumns = true;
+            this.dgvProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProdutos.Location = new System.Drawing.Point(18, 80);
+            this.dgvProdutos.Name = "dgvProdutos";
+            this.dgvProdutos.ReadOnly = true;
+            this.dgvProdutos.Size = new System.Drawing.Size(574, 166);
+            this.dgvProdutos.TabIndex = 12;
+            this.dgvProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellClick);
             // 
             // btnPesquisar
             // 
@@ -135,6 +136,7 @@
             this.btnPesquisar.Size = new System.Drawing.Size(72, 55);
             this.btnPesquisar.TabIndex = 11;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtPesquisa
             // 
@@ -152,21 +154,21 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "Digite o nome do Produto para Pesquisa: ";
             // 
-            // txtNome
+            // txtDescricao
             // 
-            this.txtNome.Location = new System.Drawing.Point(19, 70);
-            this.txtNome.Name = "txtNome";
-            this.txtNome.Size = new System.Drawing.Size(367, 20);
-            this.txtNome.TabIndex = 46;
+            this.txtDescricao.Location = new System.Drawing.Point(19, 70);
+            this.txtDescricao.Name = "txtDescricao";
+            this.txtDescricao.Size = new System.Drawing.Size(367, 20);
+            this.txtDescricao.TabIndex = 46;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(16, 54);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.Size = new System.Drawing.Size(58, 13);
             this.label2.TabIndex = 53;
-            this.label2.Text = "Nome:";
+            this.label2.Text = "Descrição:";
             // 
             // txtId
             // 
@@ -195,6 +197,7 @@
             this.picFoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picFoto.TabIndex = 67;
             this.picFoto.TabStop = false;
+            this.picFoto.Click += new System.EventHandler(this.picFoto_Click);
             // 
             // btnFechar
             // 
@@ -207,6 +210,7 @@
             this.btnFechar.Text = "Fechar";
             this.btnFechar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFechar.UseVisualStyleBackColor = true;
+            this.btnFechar.Click += new System.EventHandler(this.btnFechar_Click);
             // 
             // btnExcluir
             // 
@@ -219,6 +223,7 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnCancelar
             // 
@@ -231,6 +236,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAlterar
             // 
@@ -244,6 +250,7 @@
             this.btnAlterar.Text = "Alterar";
             this.btnAlterar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAlterar.UseVisualStyleBackColor = true;
+            this.btnAlterar.Click += new System.EventHandler(this.btnAlterar_Click);
             // 
             // btnIncluir
             // 
@@ -256,21 +263,22 @@
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
-            // comboBox1
+            // cboMarcas
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(19, 156);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(367, 21);
-            this.comboBox1.TabIndex = 68;
+            this.cboMarcas.FormattingEnabled = true;
+            this.cboMarcas.Location = new System.Drawing.Point(19, 156);
+            this.cboMarcas.Name = "cboMarcas";
+            this.cboMarcas.Size = new System.Drawing.Size(367, 21);
+            this.cboMarcas.TabIndex = 68;
             // 
-            // textBox1
+            // txtValor
             // 
-            this.textBox1.Location = new System.Drawing.Point(19, 200);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(149, 20);
-            this.textBox1.TabIndex = 69;
+            this.txtValor.Location = new System.Drawing.Point(19, 200);
+            this.txtValor.Name = "txtValor";
+            this.txtValor.Size = new System.Drawing.Size(149, 20);
+            this.txtValor.TabIndex = 69;
             // 
             // label5
             // 
@@ -287,16 +295,16 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 569);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.txtValor);
+            this.Controls.Add(this.cboMarcas);
             this.Controls.Add(this.picFoto);
-            this.Controls.Add(this.txtRenda);
+            this.Controls.Add(this.txtEstoque);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cboCidades);
+            this.Controls.Add(this.cboCategorias);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtNome);
+            this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.label1);
@@ -307,9 +315,10 @@
             this.Controls.Add(this.btnIncluir);
             this.Name = "FrmProdutos";
             this.Text = "FrmProdutos";
+            this.Load += new System.EventHandler(this.FrmProdutos_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -320,17 +329,17 @@
 
         private System.Windows.Forms.OpenFileDialog ofdArquivo;
         private System.Windows.Forms.PictureBox picFoto;
-        private System.Windows.Forms.TextBox txtRenda;
+        private System.Windows.Forms.TextBox txtEstoque;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cboCidades;
+        private System.Windows.Forms.ComboBox cboCategorias;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgvClientes;
+        private System.Windows.Forms.DataGridView dgvProdutos;
         private System.Windows.Forms.Button btnPesquisar;
         private System.Windows.Forms.TextBox txtPesquisa;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtNome;
+        private System.Windows.Forms.TextBox txtDescricao;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtId;
         private System.Windows.Forms.Label label1;
@@ -339,8 +348,8 @@
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnIncluir;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cboMarcas;
+        private System.Windows.Forms.TextBox txtValor;
         private System.Windows.Forms.Label label5;
     }
 }

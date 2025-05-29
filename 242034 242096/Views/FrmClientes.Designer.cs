@@ -30,6 +30,7 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
+            this.btnPesquisar = new System.Windows.Forms.Button();
             this.txtPesquisa = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtNome = new System.Windows.Forms.TextBox();
@@ -49,7 +50,6 @@
             this.txtRenda = new System.Windows.Forms.TextBox();
             this.ofdArquivo = new System.Windows.Forms.OpenFileDialog();
             this.picFoto = new System.Windows.Forms.PictureBox();
-            this.btnPesquisar = new System.Windows.Forms.Button();
             this.btnFechar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -84,6 +84,16 @@
             this.dgvClientes.Size = new System.Drawing.Size(574, 166);
             this.dgvClientes.TabIndex = 12;
             this.dgvClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellClick);
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Image = global::_242034_242096.Properties.Resources._3_pesquisar;
+            this.btnPesquisar.Location = new System.Drawing.Point(511, 19);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(72, 55);
+            this.btnPesquisar.TabIndex = 11;
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // txtPesquisa
             // 
@@ -244,16 +254,6 @@
             this.picFoto.TabIndex = 45;
             this.picFoto.TabStop = false;
             this.picFoto.Click += new System.EventHandler(this.picFoto_Click);
-            // 
-            // btnPesquisar
-            // 
-            this.btnPesquisar.Image = global::_242034_242096.Properties.Resources._3_pesquisar;
-            this.btnPesquisar.Location = new System.Drawing.Point(511, 19);
-            this.btnPesquisar.Name = "btnPesquisar";
-            this.btnPesquisar.Size = new System.Drawing.Size(72, 55);
-            this.btnPesquisar.TabIndex = 11;
-            this.btnPesquisar.UseVisualStyleBackColor = true;
-            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnFechar
             // 

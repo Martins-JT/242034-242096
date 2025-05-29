@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace _242034_242096.Models
 {
-    public  class Cliente
+    public class Cliente
     {
         public int id { get; set; }
 
