@@ -130,7 +130,8 @@ namespace _242034_242096.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            limpaControles();
+            carregarGrid("");
         }
 
         private void btnExcluir_Click(object sender, EventArgs e)

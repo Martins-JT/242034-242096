@@ -106,9 +106,32 @@ namespace _242034_242096
 
                 Comando.ExecuteNonQuery();
 
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS VENDAS_CAB " +
+                    "(Id integer auto_increment primary key, " +
+                    "idcliente integer, " +
+                    "total decimal(10,2), " +
+                    "data date)", Conexao);
+
+                Comando.ExecuteNonQuery();
+
+
+
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS VENDAS_DET " +
+                    "(Id integer auto_increment primary key, " +
+                    "idvendacab integer, " +
+                    "idproduto integer, " +
+                    "QTDE decimal(10,3), " +
+                    "VLR_UNIT decimal(10,2)) ", Conexao);
+
+                Comando.ExecuteNonQuery();
 
                 //Chama a função para fechar a conexão com o banco
                 FecharConexao();
+
+
+                
+
             }
             catch (Exception e)
             {
