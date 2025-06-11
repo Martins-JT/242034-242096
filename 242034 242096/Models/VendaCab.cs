@@ -16,6 +16,32 @@ namespace _242034_242096.Models
 
         public double total { get; set; }
 
-        
+
+        public int Incluir()
+        {
+            try
+            {
+                Banco.Conexao.Open();
+                Banco.Comando = new MySqlCommand(
+                    "INSERT INTO vendas_cab(idcliente, data, total) " +
+                    "VALUES (@idcliente, @data, @total)", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@idcliente", idcliente);
+                Banco.Comando.Parameters.AddWithValue("@data", data);
+                Banco.Comando.Parameters.AddWithValue("@total", total);
+                Banco.Comando.ExecuteNonQuery();
+                Banco.Conexao.Close();
+
+                return (int)Banco.Comando.LastInsertedId;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return 0;
+            }
+        }
+
+
+
+        }
     }
-}
+
