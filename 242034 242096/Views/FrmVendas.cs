@@ -34,10 +34,11 @@ namespace _242034_242096.Views
                 txtRenda.Text = reg["RENDA"].ToString();
                 mskCPF.Text = reg["CPF"].ToString();
                 mskDataNasc.Text = reg["DATANASC"].ToString();
-                picCliente.Text = reg["FOTO"].ToString();
-                chkVenda.Checked = (bool)reg["venda"];
+                picCliente.ImageLocation = reg["FOTO"].ToString();
+                chkVenda.Checked = (bool)reg["VENDA"];
 
-            }
+            } // Essa rotina permite atualizar automaticamente todos os dados do cliente,
+              // ao mesmo tempo em que é possível selecionar outros
         }
         void limpaProduto()
         {
@@ -52,7 +53,7 @@ namespace _242034_242096.Views
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if (cboClientes.SelectedIndex == -1) 
+            if (cboClientes.SelectedIndex != -1) 
             {
                 if (chkVenda.Checked) 
                 {
@@ -67,7 +68,22 @@ namespace _242034_242096.Views
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
+            double quantidade = double.Parse(txtQuantidade.Text);
+            double estoque = double.Parse(txtEstoque.Text);
 
+            if (quantidade > estoque)
+            {
+                MessageBox.Show("Estoque insuficiente", "Vendas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                txtQuantidade.SelectAll();
+                return;
+            }
+            dgvProdutos.Rows.Add(cboProdutos.SelectedValue, cboProdutos.Text, txtQuantidade.Text, txtPreco.Text);
+
+            double preco = double.Parse(txtPreco.Text);
+
+            total += quantidade * preco;
+            lblTotal.Text = total.ToString("C");
+            limpaProduto();
         }
 
         private void btnRemover_Click(object sender, EventArgs e)
@@ -110,17 +126,37 @@ namespace _242034_242096.Views
             
 
             cboClientes.DataSource = c.Consultar();
-            cboClientes.DataSource = "nome";
-            cboClientes.DataSource = "id";
+            cboClientes.DisplayMember = "nome";
+            cboClientes.ValueMember = "id";
 
 
             p = new Produto();
             cboProdutos.DataSource = p.Consultar();
-            cboProdutos.DataSource = "descricao";
-            cboProdutos.DataSource = "id";
+            cboProdutos.DisplayMember = "descricao";
+            cboProdutos.ValueMember = "id";
 
             btnCancelar.PerformClick();
+            //  Executa um click automático ao entrar no forms,
+            //  ou seja, o forms nunca vai vir carregado com informações.
 
+        }
+
+        private void chkVenda_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboProdutos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cboProdutos.SelectedIndex != -1)
+            {
+                DataRowView reg = (DataRowView)cboProdutos.SelectedItem;
+                txtEstoque.Text = reg["estoque"].ToString();
+                txtPreco.Text = reg["valorVenda"].ToString();
+                txtMarca.Text = reg["Marca"].ToString();
+                txtCategoria.Text = reg["Categoria"].ToString();
+                picProduto.ImageLocation = reg["foto"].ToString();
+            }
         }
     }
 }

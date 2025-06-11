@@ -101,9 +101,9 @@
             // 
             // btnConfirmar
             // 
-            this.btnConfirmar.Location = new System.Drawing.Point(503, 111);
+            this.btnConfirmar.Location = new System.Drawing.Point(491, 107);
             this.btnConfirmar.Name = "btnConfirmar";
-            this.btnConfirmar.Size = new System.Drawing.Size(95, 38);
+            this.btnConfirmar.Size = new System.Drawing.Size(107, 46);
             this.btnConfirmar.TabIndex = 47;
             this.btnConfirmar.Text = "Confirmar";
             this.btnConfirmar.UseVisualStyleBackColor = true;
@@ -129,6 +129,7 @@
             this.chkVenda.TabIndex = 35;
             this.chkVenda.Text = "Bloqueia a venda?";
             this.chkVenda.UseVisualStyleBackColor = true;
+            this.chkVenda.CheckedChanged += new System.EventHandler(this.chkVenda_CheckedChanged);
             // 
             // txtRenda
             // 
@@ -239,6 +240,7 @@
             this.cboProdutos.Name = "cboProdutos";
             this.cboProdutos.Size = new System.Drawing.Size(376, 21);
             this.cboProdutos.TabIndex = 0;
+            this.cboProdutos.SelectedIndexChanged += new System.EventHandler(this.cboProdutos_SelectedIndexChanged);
             // 
             // label10
             // 
@@ -329,7 +331,6 @@
             // 
             // txtQuantidade
             // 
-            this.txtQuantidade.Enabled = false;
             this.txtQuantidade.Location = new System.Drawing.Point(92, 103);
             this.txtQuantidade.Name = "txtQuantidade";
             this.txtQuantidade.Size = new System.Drawing.Size(77, 20);
