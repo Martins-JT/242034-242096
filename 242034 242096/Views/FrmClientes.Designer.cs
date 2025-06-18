@@ -326,6 +326,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(632, 535);
+            this.ControlBox = false;
             this.Controls.Add(this.picFoto);
             this.Controls.Add(this.txtRenda);
             this.Controls.Add(this.label8);

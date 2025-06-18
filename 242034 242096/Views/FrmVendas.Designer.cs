@@ -133,6 +133,7 @@
             // 
             // txtRenda
             // 
+            this.txtRenda.Enabled = false;
             this.txtRenda.Location = new System.Drawing.Point(470, 75);
             this.txtRenda.Name = "txtRenda";
             this.txtRenda.Size = new System.Drawing.Size(92, 20);
@@ -150,6 +151,7 @@
             // 
             // mskCPF
             // 
+            this.mskCPF.Enabled = false;
             this.mskCPF.Location = new System.Drawing.Point(248, 75);
             this.mskCPF.Mask = "999.999.999-99";
             this.mskCPF.Name = "mskCPF";
@@ -168,6 +170,8 @@
             // 
             // mskDataNasc
             // 
+            this.mskDataNasc.Cursor = System.Windows.Forms.Cursors.PanWest;
+            this.mskDataNasc.Enabled = false;
             this.mskDataNasc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.mskDataNasc.Location = new System.Drawing.Point(94, 75);
             this.mskDataNasc.Name = "mskDataNasc";
@@ -222,6 +226,7 @@
             // 
             // cboClientes
             // 
+            this.cboClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboClientes.FormattingEnabled = true;
             this.cboClientes.Location = new System.Drawing.Point(60, 14);
             this.cboClientes.Name = "cboClientes";
@@ -490,6 +495,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 558);
+            this.ControlBox = false;
             this.Controls.Add(this.btnFechar);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGravar);
@@ -499,6 +505,7 @@
             this.Controls.Add(this.grbProdutos);
             this.Controls.Add(this.grbClientes);
             this.Name = "FrmVendas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmVendas";
             this.Load += new System.EventHandler(this.FrmVendas_Load);
             this.grbClientes.ResumeLayout(false);

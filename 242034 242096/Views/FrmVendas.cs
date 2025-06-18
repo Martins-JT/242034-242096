@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using _242034_242096.Models;
+using MySqlX.XDevAPI.Relational;
 
 namespace _242034_242096.Views
 {
@@ -88,12 +89,53 @@ namespace _242034_242096.Views
 
         private void btnRemover_Click(object sender, EventArgs e)
         {
+            if (dgvProdutos.RowCount > 0)
+            {
+                double quantidade = double.Parse(dgvProdutos.CurrentRow.Cells[2].Value.ToString());
+                double preco = double.Parse(dgvProdutos.CurrentRow.Cells[3].Value.ToString());
 
+                total -= quantidade * preco;
+                lblTotal.Text = total.ToString("c");
+
+                dgvProdutos.Rows.RemoveAt(dgvProdutos.CurrentRow.Index);
+            }
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
 
+
+            vc = new VendaCab()
+            {
+                idcliente = (int)cboClientes.SelectedValue,
+                data = DateTime.Now,
+                total = total
+            };
+
+            int idVenda = vc.Incluir();
+
+            foreach (DataGridViewRow linha in dgvProdutos.Rows)
+            {
+                vd = new VendaDet()
+                {
+                    idvendacab = idVenda,
+                    idproduto = Convert.ToInt32(linha.Cells[0].Value),
+                    QTDE = Convert.ToDouble(linha.Cells[2].Value),
+                    VLR_UNIT = Convert.ToDouble(linha.Cells[3].Value)
+                };
+                vd.Incluir();
+
+                p = new Produto()
+                {
+                    id = (int)linha.Cells[0].Value
+                };
+                p.atualizaEstoque(Convert.ToDouble(linha.Cells[2].Value));
+            }
+            p = new Produto();
+            cboProdutos.DataSource = p.Consultar();
+            cboProdutos.DisplayMember = "descricao";
+            cboProdutos.ValueMember = "id";
+            btnCancelar.PerformClick();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -107,6 +149,7 @@ namespace _242034_242096.Views
             mskDataNasc.Value = DateTime.Now;
             chkVenda.Checked = false;
             picCliente.ImageLocation = "";
+            picProduto.ImageLocation = "";
             total = 0;
             lblTotal.Text = total.ToString("c");
             grbClientes.Enabled = true;
@@ -123,7 +166,7 @@ namespace _242034_242096.Views
         private void FrmVendas_Load(object sender, EventArgs e)
         {
             c = new Cliente();
-            
+
 
             cboClientes.DataSource = c.Consultar();
             cboClientes.DisplayMember = "nome";
@@ -158,5 +201,7 @@ namespace _242034_242096.Views
                 picProduto.ImageLocation = reg["foto"].ToString();
             }
         }
+
+      
     }
 }
