@@ -73,7 +73,6 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Image = global::_242034_242096.Properties.Resources._3_pesquisar;
             this.btnPesquisar.Location = new System.Drawing.Point(511, 19);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(72, 55);

@@ -73,7 +73,6 @@
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Image = global::_242034_242096.Properties.Resources._3_pesquisar;
             this.btnPesquisar.Location = new System.Drawing.Point(511, 19);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(72, 55);
@@ -132,7 +131,6 @@
             // 
             // btnFechar
             // 
-            this.btnFechar.Image = global::_242034_242096.Properties.Resources._3_fechar;
             this.btnFechar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnFechar.Location = new System.Drawing.Point(506, 117);
             this.btnFechar.Name = "btnFechar";
@@ -145,7 +143,6 @@
             // 
             // btnExcluir
             // 
-            this.btnExcluir.Image = global::_242034_242096.Properties.Resources._3_excluir;
             this.btnExcluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnExcluir.Location = new System.Drawing.Point(385, 117);
             this.btnExcluir.Name = "btnExcluir";
@@ -158,7 +155,6 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Image = global::_242034_242096.Properties.Resources._3_cancelar2;
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(265, 117);
             this.btnCancelar.Name = "btnCancelar";
@@ -172,7 +168,6 @@
             // btnAlterar
             // 
             this.btnAlterar.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnAlterar.Image = global::_242034_242096.Properties.Resources._3_atualizar2;
             this.btnAlterar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAlterar.Location = new System.Drawing.Point(145, 117);
             this.btnAlterar.Name = "btnAlterar";
@@ -185,7 +180,6 @@
             // 
             // btnIncluir
             // 
-            this.btnIncluir.Image = global::_242034_242096.Properties.Resources._3_add;
             this.btnIncluir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnIncluir.Location = new System.Drawing.Point(25, 117);
             this.btnIncluir.Name = "btnIncluir";

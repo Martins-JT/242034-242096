@@ -205,28 +205,37 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\3-add.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3-atualizar2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3-cancelar2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3-excluir2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3-excluir.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3-fechar.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\3-pesquisar.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\GerarFinanceiro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-add1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-atualizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-atualizar21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-cancelar21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-excluir1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-excluir21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-imprimir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-pesquisar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\3-fechar1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

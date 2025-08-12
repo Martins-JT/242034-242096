@@ -50,7 +50,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.nudQtdeParcela = new System.Windows.Forms.NumericUpDown();
-            this.btnFinanceiro1 = new System.Windows.Forms.Button();
+            this.btnFinanceiro = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.Parcelasaa.SuspendLayout();
@@ -261,38 +261,43 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(6, 32);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.Size = new System.Drawing.Size(33, 13);
             this.label7.TabIndex = 4;
-            this.label7.Text = "Entrada:";
+            this.label7.Text = "Qtde:";
             // 
             // nudQtdeParcela
             // 
             this.nudQtdeParcela.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nudQtdeParcela.Location = new System.Drawing.Point(59, 29);
+            this.nudQtdeParcela.Location = new System.Drawing.Point(42, 29);
             this.nudQtdeParcela.Name = "nudQtdeParcela";
             this.nudQtdeParcela.Size = new System.Drawing.Size(51, 21);
             this.nudQtdeParcela.TabIndex = 0;
+            this.nudQtdeParcela.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // btnFinanceiro1
+            // btnFinanceiro
             // 
-            this.btnFinanceiro1.BackColor = System.Drawing.Color.LightGray;
-            this.btnFinanceiro1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinanceiro1.Image = global::_242034_242096.Properties.Resources.GerarFinanceiro;
-            this.btnFinanceiro1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinanceiro1.Location = new System.Drawing.Point(471, 256);
-            this.btnFinanceiro1.Name = "btnFinanceiro1";
-            this.btnFinanceiro1.Size = new System.Drawing.Size(146, 53);
-            this.btnFinanceiro1.TabIndex = 3;
-            this.btnFinanceiro1.Text = "Gerar Financeiro";
-            this.btnFinanceiro1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFinanceiro1.UseVisualStyleBackColor = false;
+            this.btnFinanceiro.BackColor = System.Drawing.Color.LightGray;
+            this.btnFinanceiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinanceiro.Image = global::_242034_242096.Properties.Resources.GerarFinanceiro;
+            this.btnFinanceiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFinanceiro.Location = new System.Drawing.Point(471, 256);
+            this.btnFinanceiro.Name = "btnFinanceiro";
+            this.btnFinanceiro.Size = new System.Drawing.Size(146, 53);
+            this.btnFinanceiro.TabIndex = 3;
+            this.btnFinanceiro.Text = "Gerar Financeiro";
+            this.btnFinanceiro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFinanceiro.UseVisualStyleBackColor = false;
             // 
             // FrmNegociacaoVenda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(642, 321);
-            this.Controls.Add(this.btnFinanceiro1);
+            this.Controls.Add(this.btnFinanceiro);
             this.Controls.Add(this.Parcelasaa);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -333,6 +338,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown nudQtdeParcela;
-        private System.Windows.Forms.Button btnFinanceiro1;
+        private System.Windows.Forms.Button btnFinanceiro;
     }
 }
