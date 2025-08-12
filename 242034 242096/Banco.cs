@@ -22,7 +22,7 @@ namespace _242034_242096
             try
             {
                 //Estabelece os parâmetros para a conexão com o banco
-                Conexao = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=etecjau");
+                Conexao = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=");
 
                 //Abre a conexão com o banco de dados
                 Conexao.Open();
@@ -124,6 +124,16 @@ namespace _242034_242096
                     "QTDE decimal(10,3), " +
                     "VLR_UNIT decimal(10,2)) ", Conexao);
 
+                Comando.ExecuteNonQuery();
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Contas_Receber " + 
+                                           "(id integer auto_increment primary key," +
+                                           " idVenda int," +
+                                           " parcela tinyint," +
+                                           " data_vencto date," +
+                                           " data_pagto date," +
+                                           " vlr_parcela double (10,2)," +
+                                           " status boolean)", Conexao);
                 Comando.ExecuteNonQuery();
 
                 //Chama a função para fechar a conexão com o banco

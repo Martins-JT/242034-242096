@@ -63,69 +63,9 @@ namespace _242034_242096.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _3_add {
+        internal static System.Drawing.Bitmap GerarFinanceiro {
             get {
-                object obj = ResourceManager.GetObject("3-add", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3_atualizar2 {
-            get {
-                object obj = ResourceManager.GetObject("3-atualizar2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3_cancelar2 {
-            get {
-                object obj = ResourceManager.GetObject("3-cancelar2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3_excluir {
-            get {
-                object obj = ResourceManager.GetObject("3-excluir", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3_excluir2 {
-            get {
-                object obj = ResourceManager.GetObject("3-excluir2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3_fechar {
-            get {
-                object obj = ResourceManager.GetObject("3-fechar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _3_pesquisar {
-            get {
-                object obj = ResourceManager.GetObject("3-pesquisar", resourceCulture);
+                object obj = ResourceManager.GetObject("GerarFinanceiro", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
