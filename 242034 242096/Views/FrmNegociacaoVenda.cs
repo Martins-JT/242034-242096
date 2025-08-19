@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using _242034_242096.Models;
 
 namespace _242034_242096.Views
 {
@@ -15,12 +16,41 @@ namespace _242034_242096.Views
         // total e parcela receberão um valor enviado pelo usuário, já a variável entrada se o usuário não fornecesse um valor
         // seria nulo e daria erro, ou seja, quando você atribui o 0 evita erros como o nulo e mantém a fluidez do código.
         double total, entrada = 0, parcela;
+
+        private void txtEntrada_TextChanged(object sender, EventArgs e)
+        {
+            calcularParcela();
+        }
+
+        private void nudQtdeParcela_ValueChanged(object sender, EventArgs e)
+        {
+            calcularParcela();
+        }
+
+        private void btnFinanceiro_Click(object sender, EventArgs e)
+        {
+            for (byte NumPar = 0; NumPar < nudQtdeParcela.Value; NumPar++)
+            {
+                NegociacaoVenda n = new NegociacaoVenda()
+                {
+                    idVenda = Convert.ToInt16(txtIdVenda.Text),
+                    parcela = Convert.ToByte(NumPar + 1),
+                    data_vencto = dtpVencto.Value.AddMonths(NumPar),
+                    vlr_parcela = parcela,
+                    status = false
+                };
+
+                n.Incluir();
+            }
+            Close();
+        }
+
         public FrmNegociacaoVenda(int idVenda, int idCliente,double total, string nome)
             //esse é um método que constroi o form
         {
             InitializeComponent();
 
-            txtidVenda.Text = idVenda.ToString();
+            txtIdVenda.Text = idVenda.ToString();
             txtidCliente.Text = idCliente.ToString();
             txtNome.Text = nome;
             txtTotal.Text = total.ToString("c");

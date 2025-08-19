@@ -36,7 +36,7 @@
             this.txtNome = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtidCliente = new System.Windows.Forms.TextBox();
-            this.txtidVenda = new System.Windows.Forms.TextBox();
+            this.txtIdVenda = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblSaldo = new System.Windows.Forms.Label();
@@ -66,7 +66,7 @@
             this.groupBox1.Controls.Add(this.txtNome);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtidCliente);
-            this.groupBox1.Controls.Add(this.txtidVenda);
+            this.groupBox1.Controls.Add(this.txtIdVenda);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(12, 27);
             this.groupBox1.Name = "groupBox1";
@@ -138,15 +138,15 @@
             this.txtidCliente.Text = "0";
             this.txtidCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // txtidVenda
+            // txtIdVenda
             // 
-            this.txtidVenda.Enabled = false;
-            this.txtidVenda.Location = new System.Drawing.Point(54, 26);
-            this.txtidVenda.Name = "txtidVenda";
-            this.txtidVenda.Size = new System.Drawing.Size(50, 20);
-            this.txtidVenda.TabIndex = 1;
-            this.txtidVenda.Text = "0";
-            this.txtidVenda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtIdVenda.Enabled = false;
+            this.txtIdVenda.Location = new System.Drawing.Point(54, 26);
+            this.txtIdVenda.Name = "txtIdVenda";
+            this.txtIdVenda.Size = new System.Drawing.Size(50, 20);
+            this.txtIdVenda.TabIndex = 1;
+            this.txtIdVenda.Text = "0";
+            this.txtIdVenda.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label1
             // 
@@ -195,6 +195,7 @@
             this.txtEntrada.Name = "txtEntrada";
             this.txtEntrada.Size = new System.Drawing.Size(100, 20);
             this.txtEntrada.TabIndex = 2;
+            this.txtEntrada.TextChanged += new System.EventHandler(this.txtEntrada_TextChanged);
             // 
             // label5
             // 
@@ -243,6 +244,7 @@
             // 
             this.dtpVencto.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpVencto.Location = new System.Drawing.Point(103, 69);
+            this.dtpVencto.MinDate = new System.DateTime(1950, 1, 1, 0, 0, 0, 0);
             this.dtpVencto.Name = "dtpVencto";
             this.dtpVencto.Size = new System.Drawing.Size(89, 20);
             this.dtpVencto.TabIndex = 6;
@@ -269,6 +271,16 @@
             // 
             this.nudQtdeParcela.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nudQtdeParcela.Location = new System.Drawing.Point(42, 29);
+            this.nudQtdeParcela.Maximum = new decimal(new int[] {
+            24,
+            0,
+            0,
+            0});
+            this.nudQtdeParcela.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.nudQtdeParcela.Name = "nudQtdeParcela";
             this.nudQtdeParcela.Size = new System.Drawing.Size(51, 21);
             this.nudQtdeParcela.TabIndex = 0;
@@ -277,20 +289,22 @@
             0,
             0,
             0});
+            this.nudQtdeParcela.ValueChanged += new System.EventHandler(this.nudQtdeParcela_ValueChanged);
             // 
             // btnFinanceiro
             // 
             this.btnFinanceiro.BackColor = System.Drawing.Color.LightGray;
             this.btnFinanceiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinanceiro.Image = global::_242034_242096.Properties.Resources.GerarFinanceiro;
-            this.btnFinanceiro.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinanceiro.Location = new System.Drawing.Point(471, 256);
+            this.btnFinanceiro.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.btnFinanceiro.Location = new System.Drawing.Point(471, 264);
             this.btnFinanceiro.Name = "btnFinanceiro";
-            this.btnFinanceiro.Size = new System.Drawing.Size(146, 53);
+            this.btnFinanceiro.Size = new System.Drawing.Size(159, 56);
             this.btnFinanceiro.TabIndex = 3;
             this.btnFinanceiro.Text = "Gerar Financeiro";
             this.btnFinanceiro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFinanceiro.UseVisualStyleBackColor = false;
+            this.btnFinanceiro.Click += new System.EventHandler(this.btnFinanceiro_Click);
             // 
             // FrmNegociacaoVenda
             // 
@@ -322,7 +336,7 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtidCliente;
-        private System.Windows.Forms.TextBox txtidVenda;
+        private System.Windows.Forms.TextBox txtIdVenda;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtData;

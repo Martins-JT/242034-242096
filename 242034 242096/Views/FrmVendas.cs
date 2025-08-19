@@ -131,10 +131,15 @@ namespace _242034_242096.Views
                 };
                 p.atualizaEstoque(Convert.ToDouble(linha.Cells[2].Value));
             }
+            FrmNegociacaoVenda frm = new FrmNegociacaoVenda(idVenda, (int)cboClientes.SelectedValue, total, cboClientes.Text);
+
+            frm.ShowDialog();
             p = new Produto();
             cboProdutos.DataSource = p.Consultar();
             cboProdutos.DisplayMember = "descricao";
             cboProdutos.ValueMember = "id";
+
+            
             btnCancelar.PerformClick();
         }
 
