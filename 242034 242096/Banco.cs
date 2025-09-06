@@ -22,7 +22,7 @@ namespace _242034_242096
             try
             {
                 //Estabelece os parâmetros para a conexão com o banco
-                Conexao = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=");
+                Conexao = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=etecjau");
 
                 //Abre a conexão com o banco de dados
                 Conexao.Open();
@@ -136,11 +136,23 @@ namespace _242034_242096
                                            " status boolean)", Conexao);
                 Comando.ExecuteNonQuery();
 
+                
+
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS Caixa " +
+                                            "(id integer auto_increment primary key," +
+                                            " idVendaCab int," +
+                                            " dinheiro double(10,2)," +
+                                            " pix double(10,2)," +
+                                            " cartao double(10,2)," +
+                                            " cheque double(10,2)," +
+                                            " boleto double(10,2))", Conexao);
+                Comando.ExecuteNonQuery();
+
                 //Chama a função para fechar a conexão com o banco
                 FecharConexao();
-
-
                 
+
+
 
             }
             catch (Exception e)
