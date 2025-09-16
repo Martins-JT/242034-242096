@@ -29,7 +29,7 @@ namespace _242034_242096.Views
         {
             if (troco < 0)
             {
-                MessageBox.Show("", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Valor insuficiente", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 return;
             }
