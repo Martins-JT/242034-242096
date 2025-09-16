@@ -42,7 +42,7 @@
             this.txtBoleto = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTroco = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCaixa = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -120,43 +120,53 @@
             // 
             // txtDinheiro
             // 
+            this.txtDinheiro.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDinheiro.Location = new System.Drawing.Point(102, 119);
             this.txtDinheiro.Multiline = true;
             this.txtDinheiro.Name = "txtDinheiro";
             this.txtDinheiro.Size = new System.Drawing.Size(241, 36);
             this.txtDinheiro.TabIndex = 7;
+            this.txtDinheiro.TextChanged += new System.EventHandler(this.txtDinheiro_TextChanged);
             // 
             // txtCheque
             // 
+            this.txtCheque.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCheque.Location = new System.Drawing.Point(102, 177);
             this.txtCheque.Multiline = true;
             this.txtCheque.Name = "txtCheque";
             this.txtCheque.Size = new System.Drawing.Size(241, 36);
             this.txtCheque.TabIndex = 8;
+            this.txtCheque.TextChanged += new System.EventHandler(this.txtCheque_TextChanged);
             // 
             // txtCartao
             // 
+            this.txtCartao.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCartao.Location = new System.Drawing.Point(102, 232);
             this.txtCartao.Multiline = true;
             this.txtCartao.Name = "txtCartao";
             this.txtCartao.Size = new System.Drawing.Size(241, 36);
             this.txtCartao.TabIndex = 9;
+            this.txtCartao.TextChanged += new System.EventHandler(this.txtCartao_TextChanged);
             // 
             // txtPIX
             // 
+            this.txtPIX.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPIX.Location = new System.Drawing.Point(102, 290);
             this.txtPIX.Multiline = true;
             this.txtPIX.Name = "txtPIX";
             this.txtPIX.Size = new System.Drawing.Size(241, 36);
             this.txtPIX.TabIndex = 10;
+            this.txtPIX.TextChanged += new System.EventHandler(this.txtPIX_TextChanged);
             // 
             // txtBoleto
             // 
+            this.txtBoleto.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBoleto.Location = new System.Drawing.Point(102, 352);
             this.txtBoleto.Multiline = true;
             this.txtBoleto.Name = "txtBoleto";
             this.txtBoleto.Size = new System.Drawing.Size(241, 36);
             this.txtBoleto.TabIndex = 11;
+            this.txtBoleto.TextChanged += new System.EventHandler(this.txtBoleto_TextChanged);
             // 
             // label4
             // 
@@ -180,17 +190,18 @@
             this.txtTroco.Text = "R$ 0,00";
             this.txtTroco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button1
+            // btnCaixa
             // 
-            this.button1.Image = global::_242034_242096.Properties.Resources.pngwing;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(220, 471);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(204, 70);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Realizar Pagamento";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCaixa.Image = global::_242034_242096.Properties.Resources.pngwing;
+            this.btnCaixa.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCaixa.Location = new System.Drawing.Point(220, 471);
+            this.btnCaixa.Name = "btnCaixa";
+            this.btnCaixa.Size = new System.Drawing.Size(204, 70);
+            this.btnCaixa.TabIndex = 14;
+            this.btnCaixa.Text = "Realizar Pagamento";
+            this.btnCaixa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCaixa.UseVisualStyleBackColor = true;
+            this.btnCaixa.Click += new System.EventHandler(this.btnCaixa_Click);
             // 
             // pictureBox1
             // 
@@ -252,7 +263,7 @@
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCaixa);
             this.Controls.Add(this.txtTroco);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtBoleto);
@@ -295,7 +306,7 @@
         private System.Windows.Forms.TextBox txtBoleto;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTroco;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCaixa;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;

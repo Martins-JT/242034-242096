@@ -212,7 +212,7 @@
             this.Controls.Add(this.btnAlterar);
             this.Controls.Add(this.btnIncluir);
             this.Name = "FrmCategorias";
-            this.Text = "6";
+            this.Text = "Categorias";
             this.Load += new System.EventHandler(this.FrmCategorias_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

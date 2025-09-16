@@ -114,6 +114,7 @@
             // 
             // txtNome
             // 
+            this.txtNome.Enabled = false;
             this.txtNome.Location = new System.Drawing.Point(110, 52);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(432, 20);
@@ -297,9 +298,9 @@
             this.btnFinanceiro.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinanceiro.Image = global::_242034_242096.Properties.Resources.GerarFinanceiro;
             this.btnFinanceiro.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.btnFinanceiro.Location = new System.Drawing.Point(471, 264);
+            this.btnFinanceiro.Location = new System.Drawing.Point(480, 264);
             this.btnFinanceiro.Name = "btnFinanceiro";
-            this.btnFinanceiro.Size = new System.Drawing.Size(159, 56);
+            this.btnFinanceiro.Size = new System.Drawing.Size(150, 56);
             this.btnFinanceiro.TabIndex = 3;
             this.btnFinanceiro.Text = "Gerar Financeiro";
             this.btnFinanceiro.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
