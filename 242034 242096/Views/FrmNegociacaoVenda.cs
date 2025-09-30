@@ -50,6 +50,8 @@ namespace _242034_242096.Views
             }
         }
 
+       
+
         public FrmNegociacaoVenda(int idVenda, int idCliente,double total, string nome)
             //esse é um método que constroi o form
         {

@@ -155,6 +155,7 @@
             // 
             // cboCidades
             // 
+            this.cboCidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboCidades.FormattingEnabled = true;
             this.cboCidades.Location = new System.Drawing.Point(26, 131);
             this.cboCidades.Name = "cboCidades";

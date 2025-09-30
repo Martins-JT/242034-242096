@@ -58,5 +58,11 @@ namespace _242034_242096
             FrmVendas form = new FrmVendas();
             form.Show();
         }
+
+        private void contasAReceberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmContasaReceber form = new FrmContasaReceber();
+            form.Show();
+        }
     }
 }
