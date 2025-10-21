@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace _242034_242096.Models
 {
@@ -19,6 +20,8 @@ namespace _242034_242096.Models
         public double vlr_parcela { get; set; }
 
         public Boolean status {  get; set; }
+
+        public int idCliente { get; set; }
 
         public void Incluir()
         {
@@ -51,5 +54,33 @@ namespace _242034_242096.Models
                 MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+           
+
+       public DataTable Consultar(int idCliente)
+        {
+            try
+            {
+                Banco.Comando = new MySqlCommand("select ct.nome, c.parcela, c.data_vencto, c.vlr_parcela, " +
+                    "c.status from contas_receber c " +
+                    "inner join vendas_cab v " +
+                    "on c.idVenda = v.id " +
+                    "inner join clientes ct " +
+                    "on v.idcliente = ct.id " +
+                    "where v.idCliente = @idCliente and " +
+                    "c.status = false", Banco.Conexao);
+                Banco.Comando.Parameters.AddWithValue("@idCliente", idCliente);
+                Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
+                Banco.datTabela = new DataTable();
+                Banco.Adaptador.Fill(Banco.datTabela);
+                return Banco.datTabela;
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+        }
+
     }
 }

@@ -28,28 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmContasaReceber));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnConfirmar = new System.Windows.Forms.Button();
             this.txtData = new System.Windows.Forms.Label();
             this.txtCPF = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.cboClientes = new System.Windows.Forms.ComboBox();
+            this.dgvContas_receber = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContas_receber)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnConfirmar);
             this.groupBox1.Controls.Add(this.txtData);
             this.groupBox1.Controls.Add(this.txtCPF);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.cboClientes);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(47, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(524, 133);
+            this.groupBox1.Size = new System.Drawing.Size(524, 147);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cliente";
+            // 
+            // btnConfirmar
+            // 
+            this.btnConfirmar.Image = ((System.Drawing.Image)(resources.GetObject("btnConfirmar.Image")));
+            this.btnConfirmar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfirmar.Location = new System.Drawing.Point(421, 101);
+            this.btnConfirmar.Name = "btnConfirmar";
+            this.btnConfirmar.Size = new System.Drawing.Size(97, 40);
+            this.btnConfirmar.TabIndex = 5;
+            this.btnConfirmar.Text = "Confirmar";
+            this.btnConfirmar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnConfirmar.UseVisualStyleBackColor = true;
+            this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
             // txtData
             // 
@@ -67,7 +85,6 @@
             this.txtCPF.Name = "txtCPF";
             this.txtCPF.Size = new System.Drawing.Size(220, 20);
             this.txtCPF.TabIndex = 3;
-            this.txtCPF.TextChanged += new System.EventHandler(this.txtCPF_TextChanged);
             // 
             // label2
             // 
@@ -96,17 +113,31 @@
             this.cboClientes.TabIndex = 0;
             this.cboClientes.SelectedIndexChanged += new System.EventHandler(this.cboClientes_SelectedIndexChanged);
             // 
+            // dgvContas_receber
+            // 
+            this.dgvContas_receber.AllowUserToAddRows = false;
+            this.dgvContas_receber.AllowUserToDeleteRows = false;
+            this.dgvContas_receber.AllowUserToOrderColumns = true;
+            this.dgvContas_receber.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvContas_receber.Location = new System.Drawing.Point(47, 181);
+            this.dgvContas_receber.Name = "dgvContas_receber";
+            this.dgvContas_receber.ReadOnly = true;
+            this.dgvContas_receber.Size = new System.Drawing.Size(524, 150);
+            this.dgvContas_receber.TabIndex = 1;
+            // 
             // FrmContasaReceber
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.dgvContas_receber);
             this.Controls.Add(this.groupBox1);
             this.Name = "FrmContasaReceber";
             this.Text = "FrmContasaReceber";
             this.Load += new System.EventHandler(this.FrmContasaReceber_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvContas_receber)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -114,10 +145,12 @@
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox cboClientes;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtCPF;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label txtData;
+        private System.Windows.Forms.DataGridView dgvContas_receber;
+        private System.Windows.Forms.Button btnConfirmar;
+        private System.Windows.Forms.ComboBox cboClientes;
+        private System.Windows.Forms.TextBox txtCPF;
     }
 }

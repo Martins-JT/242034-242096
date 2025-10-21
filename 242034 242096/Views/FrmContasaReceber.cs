@@ -14,6 +14,7 @@ namespace _242034_242096.Views
     public partial class FrmContasaReceber : Form
     {
         Cliente c;
+        NegociacaoVenda nv;
         public FrmContasaReceber()
         {
             InitializeComponent();
@@ -26,7 +27,6 @@ namespace _242034_242096.Views
             {
                 DataRowView reg = (DataRowView)cboClientes.SelectedItem;
                 txtCPF.Text = reg["CPF"].ToString();
-
             } 
         }
 
@@ -39,14 +39,28 @@ namespace _242034_242096.Views
             cboClientes.ResetText();
         }
 
-        private void txtCPF_TextChanged(object sender, EventArgs e)
+        void carregarGrid(int idCliente)
         {
-            if (txtCPF.Text != "")
+            nv = new NegociacaoVenda()
+
             {
-               
+                idCliente = idCliente
+            };
+            dgvContas_receber.DataSource = nv.Consultar(idCliente);
+        }
+        private void btnConfirmar_Click(object sender, EventArgs e)
+        {
+            if (cboClientes.SelectedIndex != -1)
+            {
+                NegociacaoVenda n = new NegociacaoVenda();
+                dgvContas_receber.DataSource = n.Consultar((int)cboClientes.SelectedValue);
+                
+            }
+            else
+            {
+                MessageBox.Show("Nenhum Cliente selecionado! ", "Contas a Receber", MessageBoxButtons.OK, 
+                MessageBoxIcon.Warning);
             }
         }
-
-        
     }
 }
