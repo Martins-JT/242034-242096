@@ -106,9 +106,9 @@ namespace _242034_242096
 
                 Comando.ExecuteNonQuery();
 
-                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS VENDAS_CAB " +
+                Comando = new MySqlCommand("CREATE TABLE IF NOT EXISTS VENDASCAB " +
                     "(Id integer auto_increment primary key, " +
-                    "idcliente integer, " +
+                    "id_cliente integer, " +
                     "total decimal(10,2), " +
                     "data date)", Conexao);
 

@@ -10,7 +10,7 @@ namespace _242034_242096.Models
 
         public int Id { get; set; }
 
-        public int idcliente { get; set; }
+        public int id_cliente { get; set; }
 
         public DateTime data { get; set; }
 
@@ -23,9 +23,9 @@ namespace _242034_242096.Models
             {
                 Banco.Conexao.Open();
                 Banco.Comando = new MySqlCommand(
-                    "INSERT INTO vendas_cab(idcliente, data, total) " +
+                    "INSERT INTO vendascab(id_cliente, data, total) " +
                     "VALUES (@idcliente, @data, @total)", Banco.Conexao);
-                Banco.Comando.Parameters.AddWithValue("@idcliente", idcliente);
+                Banco.Comando.Parameters.AddWithValue("@idcliente", id_cliente);
                 Banco.Comando.Parameters.AddWithValue("@data", data);
                 Banco.Comando.Parameters.AddWithValue("@total", total);
                 Banco.Comando.ExecuteNonQuery();

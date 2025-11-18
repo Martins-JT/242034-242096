@@ -45,7 +45,7 @@ namespace _242034_242096.Views
             Close();
             if (entrada > 0)
             {
-                FrmCaixa frm = new FrmCaixa(txtIdVenda.Text, txtidCliente.Text, entrada, txtNome.Text);
+                FrmCaixa frm = new FrmCaixa(int.Parse(txtIdVenda.Text), int.Parse(txtidCliente.Text), entrada, txtNome.Text);
                 frm.ShowDialog();
             }
         }

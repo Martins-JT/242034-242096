@@ -60,13 +60,13 @@ namespace _242034_242096.Models
         {
             try
             {
-                Banco.Comando = new MySqlCommand("select ct.nome, c.parcela, c.data_vencto, c.vlr_parcela, " +
+                Banco.Comando = new MySqlCommand("select c.idVenda, ct.nome, c.parcela, c.data_vencto, c.vlr_parcela, " +
                     "c.status from contas_receber c " +
-                    "inner join vendas_cab v " +
+                    "inner join vendascab v " +
                     "on c.idVenda = v.id " +
                     "inner join clientes ct " +
-                    "on v.idcliente = ct.id " +
-                    "where v.idCliente = @idCliente and " +
+                    "on v.id_cliente = ct.id " +
+                    "where v.id_Cliente = @idCliente and " +
                     "c.status = false", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@idCliente", idCliente);
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
@@ -82,5 +82,36 @@ namespace _242034_242096.Models
             }
         }
 
+        public void BaixarParcela()
+        {
+            try
+            {
+                //Abre a conexão com banco
+                Banco.AbrirConexao();
+
+                //Alimenta o método command com a instrução desejada e indicada a conexão utilizada
+                Banco.Comando = new MySqlCommand("UPDATE contas_receber " + 
+                    "SET data_pagto = @data_pagto, " + 
+                    "    status = true " + 
+                    "WHERE idvenda = @idvenda and " +
+                    "   parcela = @parcela", Banco.Conexao);
+
+                //Cria os parâmetros utilizados na instrução SQL com seu respectivo conteúdo
+                Banco.Comando.Parameters.AddWithValue("@data_pagto", data_pagto);
+                Banco.Comando.Parameters.AddWithValue("@idvenda", idVenda);
+                Banco.Comando.Parameters.AddWithValue("@parcela", parcela);
+              
+
+                //Executa o comando, no MYSQL, tem a função do Raio do WorkBench
+                Banco.Comando.ExecuteNonQuery();
+
+                //Fecha a conexão
+                Banco.FecharConexao();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

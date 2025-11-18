@@ -107,7 +107,7 @@ namespace _242034_242096.Views
 
             vc = new VendaCab()
             {
-                idcliente = (int)cboClientes.SelectedValue,
+                id_cliente = (int)cboClientes.SelectedValue,
                 data = DateTime.Now,
                 total = total
             };

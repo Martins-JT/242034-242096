@@ -65,7 +65,7 @@ namespace _242034_242096.Views
             calcularTroco();
         }
 
-        public FrmCaixa(String idVendaCab, String idCliente, double total, string nome)
+        public FrmCaixa(int idVendaCab, int idCliente, double total, string nome)
         {
             InitializeComponent();
 
