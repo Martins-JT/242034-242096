@@ -23,7 +23,7 @@ namespace _242034_242096.Models
             {
                 Banco.Conexao.Open();
                 Banco.Comando = new MySqlCommand(
-                    "INSERT INTO vendascab(id_cliente, data, total) " +
+                    "INSERT INTO vendacab(idcliente, data, total) " +
                     "VALUES (@idcliente, @data, @total)", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@idcliente", id_cliente);
                 Banco.Comando.Parameters.AddWithValue("@data", data);

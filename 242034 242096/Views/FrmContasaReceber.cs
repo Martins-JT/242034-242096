@@ -24,7 +24,15 @@ namespace _242034_242096.Views
 
         private void cboClientes_SelectedIndexChanged(object sender, EventArgs e)
         {
-            dgvContas_receber.DataSource = DBNull.Value;
+            if (cboClientes.SelectedIndex != -1)
+            {
+                DataRowView reg = (DataRowView)cboClientes.SelectedItem;
+                cboCPFs.Text = reg["cpf"].ToString();
+                cboCPFs.SelectionLength = 0;
+
+                btnConfirmar.Enabled = true;
+                btnConfirmar.Select();
+            }
         }
 
         private void FrmContasaReceber_Load(object sender, EventArgs e)
@@ -76,7 +84,7 @@ namespace _242034_242096.Views
         }
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            if (cboClientes.SelectedIndex != -1)
+           /* if (cboClientes.SelectedIndex != -1)
             {
                 NegociacaoVenda n = new NegociacaoVenda();
                 dgvContas_receber.DataSource = n.Consultar((int)cboClientes.SelectedValue);
@@ -87,6 +95,51 @@ namespace _242034_242096.Views
             else
             {
                 MessageBox.Show("Nenhum Cliente selecionado! ", "Contas a Receber", MessageBoxButtons.OK, 
+                MessageBoxIcon.Warning);
+            }*/
+           if (cboClientes.SelectedIndex != -1)
+            {
+                NegociacaoVenda n = new NegociacaoVenda();
+                dgvContas_receber.DataSource = n.Consultar((int)cboClientes.SelectedValue);
+
+                dgvContas_receber.Columns["status"].HeaderText = "Ok";
+                dgvContas_receber.Columns["status"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvContas_receber.Columns["status"].Width = 50;
+
+                dgvContas_receber.Columns["idvenda"].HeaderText = "Venda";
+                dgvContas_receber.Columns["idvenda"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvContas_receber.Columns["idvenda"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvContas_receber.Columns["idvenda"].Width = 60;
+
+                dgvContas_receber.Columns["parcela"].HeaderText = "Parcela";
+                dgvContas_receber.Columns["parcela"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvContas_receber.Columns["parcela"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvContas_receber.Columns["parcela"].Width = 65;
+
+                dgvContas_receber.Columns["data_vencto"].HeaderText = "Vencto";
+                dgvContas_receber.Columns["data_vencto"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvContas_receber.Columns["data_vencto"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvContas_receber.Columns["data_vencto"].Width = 80;
+
+                dgvContas_receber.Columns["vlr_parcela"].HeaderText = "Valor (R$)";
+                dgvContas_receber.Columns["vlr_parcela"].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                dgvContas_receber.Columns["vlr_parcela"].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+                dgvContas_receber.Columns["vlr_parcela"].Width = 85;
+                dgvContas_receber.Columns["vlr_parcela"].DefaultCellStyle.Format = "N2";
+                dgvContas_receber.Columns["vlr_parcela"].DefaultCellStyle.Padding = new Padding(0, 0, 6, 0);
+                dgvContas_receber.Columns["vlr_parcela"].HeaderCell.Style.WrapMode = DataGridViewTriState.False;
+
+                btnConfirmar.Enabled = false;
+                btnMarcar.Enabled = true;
+                btnDesmarcar.Enabled = true;
+                btnGravar.Enabled = true;
+                btnCancelar.Enabled = true;
+
+            }
+            else
+            {
+                MessageBox.Show("Nenhum Cliente selecionado! ", "Contas a Receber", MessageBoxButtons.OK,
                 MessageBoxIcon.Warning);
             }
         }
@@ -145,7 +198,7 @@ namespace _242034_242096.Views
                 {
                     NegociacaoVenda n = new NegociacaoVenda
                     {
-                        idVenda = (int)linha.Cells["idVenda"].Value,
+                        idVenda = Convert.ToInt16(linha.Cells["idVenda"].Value),
                         parcela = Convert.ToByte(linha.Cells["parcela"].Value),
                         data_pagto = DateTime.Now
                     };
@@ -156,6 +209,66 @@ namespace _242034_242096.Views
             }
             FrmCaixa frm = new FrmCaixa(0, (int)cboClientes.SelectedValue, total, cboClientes.Text);
             frm.ShowDialog();
+
+            LimparForm();
+        }
+
+        private void cboCPFs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cboClientes.SelectedIndex = cboCPFs.SelectedIndex;
+        }
+
+        private void cboCPFs_TextChanged(object sender, EventArgs e)
+        {
+            btnConfirmar.Enabled = true;
+        }
+
+        private void cboCPFs_Validated(object sender, EventArgs e)
+        {
+            if (cboCPFs.Text != "")
+            {
+            
+                if (cboCPFs.SelectedIndex != -1)
+                    {
+                        cboCPFs.SelectionLength = 0;
+                    }
+                else
+                    {
+                        MessageBox.Show("CPF inválido!", "Contas a Receber",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        cboCPFs.SelectAll();
+                        cboCPFs.Select();
+                    }
+            }
+        }
+
+        private void cboClientes_Validated(object sender, EventArgs e)
+        {
+            if (cboClientes.Text != "")
+            {
+
+                if (cboClientes.SelectedIndex != -1)
+                {
+                    cboClientes.SelectionLength = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Cliente inválido!", "Contas a Receber",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cboClientes.SelectAll();
+                    cboClientes.Select();
+                }
+            }
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimparForm();
+        }
+
+        private void btnFechar_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

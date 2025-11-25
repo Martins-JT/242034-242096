@@ -62,11 +62,11 @@ namespace _242034_242096.Models
             {
                 Banco.Comando = new MySqlCommand("select c.idVenda, ct.nome, c.parcela, c.data_vencto, c.vlr_parcela, " +
                     "c.status from contas_receber c " +
-                    "inner join vendascab v " +
+                    "inner join vendacab v " +
                     "on c.idVenda = v.id " +
                     "inner join clientes ct " +
-                    "on v.id_cliente = ct.id " +
-                    "where v.id_Cliente = @idCliente and " +
+                    "on v.idcliente = ct.id " +
+                    "where v.idCliente = @idCliente and " +
                     "c.status = false", Banco.Conexao);
                 Banco.Comando.Parameters.AddWithValue("@idCliente", idCliente);
                 Banco.Adaptador = new MySqlDataAdapter(Banco.Comando);
