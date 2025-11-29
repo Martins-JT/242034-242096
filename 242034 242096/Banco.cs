@@ -22,7 +22,7 @@ namespace _242034_242096
             try
             {
                 //Estabelece os parâmetros para a conexão com o banco
-                Conexao = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=etecjau");
+                Conexao = new MySqlConnection("server=localhost;port=3307;uid=root;pwd=");
 
                 //Abre a conexão com o banco de dados
                 Conexao.Open();
